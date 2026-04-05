@@ -141,7 +141,6 @@ void inserirElemento()
 		}
 		else
 		{
-			// procura o final da lista
 			NO* aux = ultimo;
 			aux->prox = novo;
 			ultimo->prox = novo;
@@ -151,6 +150,44 @@ void inserirElemento()
 }
 void excluirElemento()
 {
+	int del;
+
+	cout << "Insira o elemento para deletar: ";
+	cin >> del;
+	NO* aux = primeiro;
+
+	if (posicaoElemento(del) != NULL)
+	{
+
+		if (posicaoElemento(del) == aux)
+		{
+			primeiro = primeiro->prox;
+
+		}
+		else
+		{
+			NO* atual = primeiro;
+			while (atual != NULL)
+			{
+				if (atual->valor == del)
+				{
+					break;
+				}
+				atual = atual->prox;
+			}
+
+			NO* anterior = primeiro;
+			while (anterior->prox != atual)
+			{
+				anterior = anterior->prox;
+				
+			}
+
+			anterior->prox = atual->prox;
+			ultimo = anterior;
+
+		}
+	}
 
 }
 
